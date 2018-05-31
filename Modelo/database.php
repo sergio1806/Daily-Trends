@@ -1,10 +1,11 @@
 <?php
-class Database
-{
-    public static function StartUp()
-    {
+
+class Database {
+
+    public static function StartUp() {
         $pdo = new PDO('mysql:host=localhost;dbname=avantio;charset=utf8', 'root', '');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
     }
+
 }
