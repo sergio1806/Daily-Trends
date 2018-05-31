@@ -11,7 +11,18 @@ class Feed {
    public $imagen;
    public $fuente;
    public $periodico;
+   
 
+  /* function Feed($id,$titulo,$descripcion,$imagen,$fuente,$periodico)
+   {
+       $this->id=$id;
+       $this->titulo=$titulo;
+       $this->descripcion=$descripcion;
+       $this->imagen=$imagen;
+       $this->fuente=$fuente;
+       $this->periodico=$periodico;
+   }
+*/
 public function __CONSTRUCT()
 	{
 		try
@@ -78,7 +89,6 @@ public function __CONSTRUCT()
 			$sql = "UPDATE feed SET 
 						titulo          = ?, 
 						descripcion        = ?,
-                                                imagen        = ?,
 						fuente            = ?, 
 						periodico = ?
 				    WHERE id = ?";
@@ -88,7 +98,6 @@ public function __CONSTRUCT()
 				    array(
                         $data->titulo, 
                         $data->descripcion,
-                        $data->imagen,
                         $data->fuente,
                         $data->periodico,
                         $data->id
@@ -119,7 +128,13 @@ public function __CONSTRUCT()
                                );
 		} catch (Exception $e) 
 		{
+                    if($e->errorInfo[1] == 1062)
+                    {
+                        
+                    }else
+                    {
 			die($e->getMessage());
+                    }
 		}
 	}
 

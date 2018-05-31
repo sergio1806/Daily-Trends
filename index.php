@@ -3,7 +3,7 @@ require_once 'modelo/database.php';
 
 
    if(isset($_REQUEST['a']))
-{       echo 'recibe a'.$_REQUEST['a'];
+{       
     $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Index';
     
     // Instanciamos el controlador
